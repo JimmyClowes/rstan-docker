@@ -11,3 +11,10 @@ RUN Rscript install-r-v8.R
 # Install rstan
 COPY install-rstan.R install-rstan.R
 RUN Rscript install-rstan.R
+
+# Create empty directory to attach volume
+RUN mkdir /home/rstudio/source
+
+# Install ssh library
+RUN apt-get install -y \
+    openssh-client
